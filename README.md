@@ -35,15 +35,15 @@ script: [run_jelly_scope.sh](scripts/run_jelly_scope.sh)
 
 ##### HiFi-only (or basic) assembly:
 This is an assembly with only hifi reads.  
-This is run using the `run_hifiasm.sh` script, with no additional flags.
+This is run using the [run_hifiasm.sh](scripts/run_hifiasm.sh) script, with no additional flags.
 
 ##### HiC integrated assembly: 
 This is an assembly with hifi reads and HiC (or OmniC or other proximity ligation) reads.  
-This is run using the `run_hifiasm.sh` script with the -1 and -2 flags
+This is run using the [run_hifiasm.sh](scripts/run_hifiasm.sh) script with the -1 and -2 flags
 
 ##### Telomere-to-telomere (T2T) assembly: 
 This is an assembly with hifi reads, HiC reads, and ultralong ONT reads.  
-This is run using the `run_hifiasm.sh` script with the -1, -2, and -u flags.
+This is run using the [run_hifiasm.sh](scripts/run_hifiasm.sh) script with the -1, -2, and -u flags.
 
 ### Required Inputs
 
@@ -290,7 +290,7 @@ Hifiasm will output three contig assemblies:
 * basenmae.hap2.p_ctg.fa
 
 
-The script `run_multiple_buscos.sh` will run busco on all three of these `*.fasta` files, but a fofn needs to be created with one file per line (with full path). This is best created in a `run` directory that will contain the logs of the script.
+The script [run_multiple_buscos.sh](scripts/run_mulitple_buscos.sh) will run busco on all three of these `*.fasta` files, but a fofn needs to be created with one file per line (with full path). This is best created in a `run` directory that will contain the logs of the script.
 
 ```
 mkdir run
@@ -320,7 +320,7 @@ The mode depends upon the input. For our genome assemblies it will always be `ge
 
 ### Running the script
 
-The `run_multiple_buscos.sh` script should be invoked in the `busco` working directory created in the "Set up directories" section above. Logs will be saved in the `run/logs` directory.  
+The [run_multiple_buscos.sh](scripts/run_mulitple_buscos.sh) script should be invoked in the `busco` working directory created in the "Set up directories" section above. Logs will be saved in the `run/logs` directory.  
 
 **IMPORTANT NOTE:** This script is not meant to be run using sbatch. It will create new scripts and run each using sbatch.  
 
@@ -333,7 +333,7 @@ path/to/run_multiple_buscos.sh `realpath .` run/<name>.fofn poales_odb10 genome
 
 ## Running Quast
 
-Assembly metrics are calculated by quast using the `run_quast_fofn.sh` script
+Assembly metrics are calculated by quast using the [run_quast_fofn.s](scripts/run_quast_fofn.sh) script
 
 ### Required inputs
 
@@ -351,7 +351,7 @@ This is usually the same as the first input when running hifiasm.
 
 #### file of file names (fofn)
 
-This is usually the same fofn used in the `run_multiple_buscos.sh` script invoked in the running Busco section.
+This is usually the same fofn used in the [run_multiple_buscos.sh](scripts/run_mulitple_buscos.sh) script invoked in the running Busco section.
 
 ### Running the script
 
@@ -363,7 +363,7 @@ sbatch /path/to/run_quast_fofn.sh `realpath .` <basename> ../busco/run/<name>.fo
 
 ## Getting read coverage of each assembly
 
-Read covergae (readcov) of each assembly is obtained using the `get_read_covs.sh` script where the original reads are mapped to the assembly and samtools and bedtools are used to calculate the coverage of the reads across the assembly in 10kb windows.  
+Read covergae (readcov) of each assembly is obtained using the [get_read_covs.sh](scripts/get_read_covs.sh) script where the original reads are mapped to the assembly and samtools and bedtools are used to calculate the coverage of the reads across the assembly in 10kb windows.  
 
 The `get_read_covs.sh` script needs to be run separately for each of the three hifiasm contig assemblies (see notes in Running Busco section above).
 
@@ -380,7 +380,7 @@ This is usually the same as the first input when running hifiasm
 
 #### The assembly file
 
-This is one of the 3 contig assemblies output from running hifiasm above. The `get_read_covs.sh` script needs to be run for each of the assemblies
+This is one of the 3 contig assemblies output from running hifiasm above. The [get_read_covs.sh](scripts/get_read_covs.sh) script needs to be run for each of the assemblies
 
 #### orginial reads fofn
 
@@ -407,7 +407,7 @@ In our case (a hifiasm assembly on PacBio hifi reads) this will be `map-hifi`.
 
 ### Running the script
 
-The `get_read_covs.sh` script should be run in the `readcov` working directory created in the "Set up directories" section above. Logs will be saved in the `logs` directory.
+The `get_read_covs.sh` script should be run in the [get_read_covs.sh](scripts/get_read_covs.sh) working directory created in the "Set up directories" section above. Logs will be saved in the `logs` directory.
  
 ```
 sbatch /path/to/get_read_covs.sh <basename> /path/to/hifiasm/contig/assembly `realpath run/hifi_reads.fofn` map-hifi
