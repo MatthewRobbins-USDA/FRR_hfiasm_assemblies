@@ -5,6 +5,12 @@ Scripts and documentation to perform hifiasm assemblies on ARS HPCs
 
 ## Intro
 
+These scripts are set up to streamline analyses on the USDA ARS Ceres HPC. They are mostly for illustration of how we do de novo assemblies. Changes will have to be made to the scripts to utilize these scripts on other systems. 
+
+In addition, we utilize a combination of software modules already installed on Ceres as well as singularity containers and conda enviros. Thus, software would have to be set up in other compute environments.
+
+At some point I would like to develop these in a containerized pipeline that can be used on any HPC.
+
 ## Set up directories
 
 In the main working directory of the project, make subdirectories that will contain the analyses:  
