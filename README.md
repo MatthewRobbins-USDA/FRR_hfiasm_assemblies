@@ -19,6 +19,16 @@ In the main working directory of the project, make subdirectories that will cont
 mkdir hifiasm busco quast readcov kmer
 ```
 
+## Order of operations
+
+
+## Kmer analysis to identify genome characteristics
+We use [jellyfish](https://github.com/gmarcais/Jellyfish) and [GenomeScope2.0](https://github.com/tbenavi1/genomescope2.0) for kmer analysis
+
+This section still under construction
+
+script: [run_jelly_scope.sh](scripts/run_jelly_scope.sh)
+
 ## Assemblies with hifiasm
 
 ### Types of assemblies
