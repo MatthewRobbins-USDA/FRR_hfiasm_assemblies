@@ -333,7 +333,7 @@ path/to/run_multiple_buscos.sh `realpath .` run/<name>.fofn poales_odb10 genome
 
 ## Running Quast
 
-Assembly metrics are calculated by quast using the [run_quast_fofn.s](scripts/run_quast_fofn.sh) script
+Assembly metrics are calculated by quast using the [run_quast_fofn.sh](scripts/run_quast_fofn.sh) script
 
 ### Required inputs
 
@@ -351,7 +351,7 @@ This is usually the same as the first input when running hifiasm.
 
 #### file of file names (fofn)
 
-This is usually the same fofn used in the [run_multiple_buscos.sh](scripts/run_mulitple_buscos.sh) script invoked in the running Busco section.
+This is usually the same fofn used in the [run_multiple_buscos.sh](scripts/run_multiple_buscos.sh) script invoked in the running Busco section.
 
 ### Running the script
 
