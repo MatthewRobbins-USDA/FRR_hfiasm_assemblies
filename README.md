@@ -290,7 +290,7 @@ Hifiasm will output three contig assemblies:
 * basenmae.hap2.p_ctg.fa
 
 
-The script [run_multiple_buscos.sh](scripts/run_mulitple_buscos.sh) will run busco on all three of these `*.fasta` files, but a fofn needs to be created with one file per line (with full path). This is best created in a `run` directory that will contain the logs of the script.
+The script [run_multiple_buscos.sh](scripts/run_multiple_buscos.sh) will run busco on all three of these `*.fasta` files, but a fofn needs to be created with one file per line (with full path). This is best created in a `run` directory that will contain the logs of the script.
 
 ```
 mkdir run
@@ -320,7 +320,7 @@ The mode depends upon the input. For our genome assemblies it will always be `ge
 
 ### Running the script
 
-The [run_multiple_buscos.sh](scripts/run_mulitple_buscos.sh) script should be invoked in the `busco` working directory created in the "Set up directories" section above. Logs will be saved in the `run/logs` directory.  
+The [run_multiple_buscos.sh](scripts/run_multiple_buscos.sh) script should be invoked in the `busco` working directory created in the "Set up directories" section above. Logs will be saved in the `run/logs` directory.  
 
 **IMPORTANT NOTE:** This script is not meant to be run using sbatch. It will create new scripts and run each using sbatch.  
 
