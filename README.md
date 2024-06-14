@@ -314,3 +314,85 @@ path/to/run_multiple_buscos.sh `realpath .` run/<name>.fofn poales_odb10 genome
 
 ### Verifying Busco ran correctly
 
+
+## Running Quast
+
+Assembly metrics are calculated by quast using the `run_quast_fofn.sh` script
+
+### Required inputs
+
+* path to the working directory where quast will save the output
+* basename. This is usually the same as the first input when running hifiasm
+* a file of file names (fofn) of all the files that will be analyzed by quast
+
+#### working directory
+
+This should be the `quast` directory made above. The full path needs to be provided.
+
+#### basename
+
+This is usually the same as the first input when running hifiasm.
+
+#### file of file names (fofn)
+
+This is usually the same fofn used in the `run_multiple_buscos.sh` script invoked in the running Busco section.
+
+### Running the script
+
+The `run_quaste_fofn.sh` script should be run in the `quast` working directory created in the "Set up directories" section above. Logs will be saved in the `logs` directory.  
+
+```
+sbatch /path/to/run_quast_fofn.sh `realpath .` <basename> ../busco/run/<name>.fofn
+```
+
+## Getting read coverage of each assembly
+
+Read covergae (readcov) of each assembly is obtained using the `get_read_covs.sh` script where the original reads are mapped to the assembly and samtools and bedtools are used to calculate the coverage of the reads across the assembly in 10kb windows.  
+
+The `get_read_covs.sh` script needs to be run separately for each of the three hifiasm contig assemblies (see notes in Running Busco section above).
+
+### Required inputs
+
+* basename. This is usually the same as the first input when running hifiasm
+* The assembly file (full path)
+* A fofn of the path to the original reads files (one per line)
+* The minimap preset
+
+#### basename
+
+This is usually the same as the first input when running hifiasm
+
+#### The assembly file
+
+This is one of the 3 contig assemblies output from running hifiasm above. The `get_read_covs.sh` script needs to be run for each of the assemblies
+
+#### orginial reads fofn
+
+**THIS IS NOT THE SAME FOFN** as used for Busco and quast above. This is a fofn of the original reads used in the hifiasm assembly and can usually be created in a run directory with the following command:  
+
+```
+ls </path/to/original/reads/files> > run/hifi_reads.fofn
+#EXAMPLE:
+ls /90daydata/arsturf/matt.robbins/poa_arachnifera/genomic_ccs/*.fasta.gz > run/hifi_reads.fofn
+```
+
+When used in the script, it should be the absolute path of the fofn.
+
+#### the minimap preset
+
+This is an important parameter for minimap to know what kind of reads will be mapped to the assembly. This could be several values:  
+
+* map-hifi
+* map-pb
+* map-ont
+* sr
+
+In our case (a hifiasm assembly on PacBio hifi reads) this will be `map-hifi`.  
+
+### Running the script
+
+The `get_read_covs.sh` script should be run in the `readcov` working directory created in the "Set up directories" section above. Logs will be saved in the `logs` directory.
+ 
+```
+sbatch /path/to/get_read_covs.sh <basename> /path/to/hifiasm/contig/assembly `realpath run/hifi_reads.fofn` map-hifi
+```
