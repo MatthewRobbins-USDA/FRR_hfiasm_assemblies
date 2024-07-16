@@ -38,7 +38,7 @@ To run the script, go to the working directory of your choice (where the output 
 cd arima_map
 mkdir <assembly_name>
 cd <assembly_name>
-arima_mapping_scaffold_cont.sh R1_HiC_file R2_HiC_file asm_ref project_name
+sbatch arima_mapping_scaffold_cont.sh R1_HiC_file R2_HiC_file asm_ref project_name
 ```
 
 ### Output
