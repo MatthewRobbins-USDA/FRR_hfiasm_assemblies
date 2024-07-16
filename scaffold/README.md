@@ -33,9 +33,11 @@ The script requires the HiC/OmniC reads in two files, R1 nd R2. If there are mul
 
 ### Usage
 
-To run the script, go to the working directory of your choice (where the output will be created) and run the script:
+To run the script, go to the working directory of your choice (where the output will be created - make sure to use the real `assembly_name`) and run the script:
 ```
-cd arima_map/<assembly_name>
+cd arima_map
+mkdir <assembly_name>
+cd <assembly_name>
 arima_mapping_scaffold_cont.sh R1_HiC_file R2_HiC_file asm_ref project_name
 ```
 
