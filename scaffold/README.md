@@ -28,7 +28,7 @@ The script requires the HiC/OmniC reads in two files, R1 nd R2. If there are mul
 1. The R1 HiC/OmniC file
 2. The R2 HiC/OmniC file
 3. The assembly (contigs) that need to be scaffolded
-4. A descriptive name for the project
+4. A descriptive name for the project (usually the name of the assembly)
 
 
 ### Usage
