@@ -61,7 +61,7 @@ There shouldn't be anything in the merged directory. Check the `stderr` and `std
 metrics*
 ```
 
-The `*.bam file will be used by yahs in the next step.
+The `*.bam` file will be used by yahs in the next step.
 
 ## Step 2: Run yahs
 
