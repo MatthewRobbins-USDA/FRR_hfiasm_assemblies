@@ -65,4 +65,25 @@ The `*.bam` file will be used by yahs in the next step.
 
 ## Step 2: Run yahs
 
-Once the arima mapping pipeline is complete, 
+Once the arima mapping pipeline is complete, the `.bam` file found in the directory `arima_map/deduplicated/` will be used by yahs for scaffolding. This is accomplished by running the `run_yahs.sh` script.
+
+### Inputs
+
+the `run_yahs.sh` script requires 3 inputs:
+
+1. The project name (should be the same as input 4 of the  `arima_mapping_scaffold_cont.sh` script
+2. The assembly (contigs) that need to be scaffolded. IMPORTANT: This should the path of the symbolic link created by the `arima_mapping_scaffold_cont.sh` script and should be in the `arima_map` directory. This is because the `fasta.fai` that is created by the `arima_mapping_scaffold_cont.sh` is required.
+3. The path to the `.bam` file in the `arima_map/deduplicated/` directory
+
+### Usage
+
+To run the script, go to the working directory in the `yahs` directory (where the output will be created - make sure to use the real `assembly_name`) and run the script:
+```
+cd yahs
+mkdir <assembly_name>
+cd < assembly_name>
+sbatch run_yahs.sh project_name path_to_assembly path_to_deduped_bam
+```
+### Output
+
+yahs will output the scaffolded assembly as a `*scaffolds_final.fa` file. along with several intermediate files. In addition to performing the scaffolding, the `run_yahs.sh` script will output `*JBAT.assembly` and `JBAT.hic` files that will be used in Juicebox.
