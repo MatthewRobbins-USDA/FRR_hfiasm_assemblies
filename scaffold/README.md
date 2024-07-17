@@ -86,4 +86,4 @@ sbatch run_yahs.sh project_name path_to_assembly path_to_deduped_bam
 ```
 ### Output
 
-yahs will output the scaffolded assembly as a `*scaffolds_final.fa` file. along with several intermediate files. In addition to performing the scaffolding, the `run_yahs.sh` script will output `*JBAT.assembly` and `JBAT.hic` files that will be used in Juicebox.
+yahs will output the scaffolded assembly as a `*scaffolds_final.fa` file. along with several intermediate files. In addition to performing the scaffolding, the `run_yahs.sh` script will output `*JBAT.assembly` and `*JBAT.hic` files that will be used in Juicebox.
