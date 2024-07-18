@@ -72,7 +72,7 @@ Once the arima mapping pipeline is complete, the `.bam` file found in the direct
 the `run_yahs.sh` script requires 3 inputs:
 
 1. The project name (should be the same as input 4 of the  `arima_mapping_scaffold_cont.sh` script
-2. The assembly (contigs) that need to be scaffolded. IMPORTANT: This should the full path of the symbolic link (don't use realpath, readlink, etc. that will follow the symlink) created by the `arima_mapping_scaffold_cont.sh` script and should be in the `arima_map` directory. This is because the `fasta.fai` that is created by the `arima_mapping_scaffold_cont.sh` is required.
+2. The assembly (contigs) that need to be scaffolded. IMPORTANT: This should the full path of the symbolic link (don't use realpath, readlink, etc. that will follow the symlink) created by the `arima_mapping_scaffold_cont.sh` script and should be in the `arima_map` directory. This is because the `fasta.fai` that is created by the `arima_mapping_scaffold_cont.sh` script is required.
 3. The path to the `.bam` file in the `arima_map/deduplicated/` directory
 
 ### Usage
