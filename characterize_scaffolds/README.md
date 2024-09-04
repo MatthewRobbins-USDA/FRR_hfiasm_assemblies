@@ -88,3 +88,22 @@ The script should be run from within the directory you want it to output to. It 
 sbatch asmBLASTRefSeq_mito.sh name /full/path/to/asm /full/path/to/mitochondria/db
 ```
 
+# Get scaffold contig information from previous results
+
+A final script can be run to pull together the outputs from the above scripts. This script is an R script called `get_scaf_cont_info.R`. It has a single argument, which is the path to a table file containing the needed information for the script. The table file should be setup like so:
+```
+Config  Value
+base    <basename>
+fa_idx  /full/path/to/asm/index/file
+plast_maxqcovs  /full/path/to/plastid/maxqcovs/file
+mit_maxqcovs    /full/path/to/mitochondria/maxqcovs/file
+kraken_tbl_short        /full/path/to/kraken/short/output/file
+blobtools_tbl  /full/path/to/blobtools/output/tsv/table
+best_blast_hits_wIDs    /full/path/to/blobtools/best/hits/wID/file
+repeat_detail_tbl       /full/path/to/repeats/output/table
+busco_full_tbl  /full/path/to/busco/full_table.tsv
+```
+After creating a TSV file with these inputs, you can then run the script like so:
+```
+Rscript /path/to/get_scaf_cont_info.R /path/to/input/table.tsv
+```
