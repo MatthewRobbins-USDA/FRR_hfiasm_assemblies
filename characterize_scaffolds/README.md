@@ -90,7 +90,7 @@ sbatch asmBLASTRefSeq_mito.sh name /full/path/to/asm /full/path/to/mitochondria/
 
 # Get scaffold contig information from previous results
 
-A final script can be run to pull together the outputs from the above scripts. This script is an R script called `get_scaf_cont_info.R`. It has a single argument, which is the path to a table file containing the needed information for the script. The table file should be setup like so:
+A final script can be run to pull together the outputs from the above scripts. This script is an R script called `get_scaf_cont_info.R`. It has a single argument, which is the path to a table file containing the needed information for the script. The table file should be setup as a tab-delimited file like so:
 ```
 Config  Value
 base    <basename>
