@@ -29,7 +29,7 @@ The script has the following required arguments:
 * asm : path to the assembly fasta/fa file
 * readswildcard : path to reads fasta.gz files with wildcard to select all, must be between quotes
 * taxid : NCBI taxid for the species (https://www.ncbi.nlm.nih.gov/taxonomy)
-* runbusco : Set to 1 if BUSCO needs to be run, otherwise use the path to the full_table.tsv file of the BUSCO analysis
+* runbusco : Set to 1 if BUSCO needs to be run, otherwise use the full path to the full_table.tsv file of the BUSCO analysis
 * busco_lineage : the BUSCO lineage for the species
 
 To run the script without existing BUSCO anlysis results, use the following format
@@ -39,7 +39,7 @@ sbatch /path/to/blobtools_prep_splits.sh account base /path/to/asm "/path/to/rea
 Otherwise, use this
 ```
 
-sbatch /path/to/blobtools_prep_splits.sh account base /path/to/asm "/path/to/reads/*.fasta.gz" ncbi_taxid /path/to/BUSCO/full_table.tsv busco_lineage
+sbatch /path/to/blobtools_prep_splits.sh account base /path/to/asm "/path/to/reads/*.fasta.gz" ncbi_taxid /full/path/to/BUSCO/full_table.tsv busco_lineage
 ```
 
 To identify the best hit from both the nr and nt databased for each scaffold, the `get_best_hits_blobtools.sh` script needs to be run on the blast output table for both analyses
