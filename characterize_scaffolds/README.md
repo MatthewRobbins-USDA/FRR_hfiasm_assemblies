@@ -10,15 +10,12 @@ There are several tools utilized to characterize scaffolds
 	* mapping original reads to scaffolds using minimap
 	* BUSCO scores
 * Kraken - identify contaminants
-* Repeat analysis - EDTA or RepeatMasker
+* Repeat analysis - EDTA
 * blastn to plastid RefSeq - identify plastid scaffolds
 * blastn to mitochondrial RefSeq - identify mitochondrial scaffolds
 
-# Prerequisite scripts
 
-There are a few scripts that are needed to prepare outputs from tools above to combine data into one table
-
-## Blobtools output
+## Running Blobtools
 
 To run blobtools, you will first need to run the `blobtools_prep_splits.sh` script. This will run diamond blastx, blastn, and minimap. It can also run BUSCO if it has not already been run.
 
@@ -41,12 +38,14 @@ Otherwise, use this
 
 sbatch /path/to/blobtools_prep_splits.sh account base /path/to/asm "/path/to/reads/*.fasta.gz" ncbi_taxid /full/path/to/BUSCO/full_table.tsv busco_lineage
 ```
-ASs part of the `blobtools_prep_splits.sh` script, a script called `run_blobtools_<base>.sh` is produced to finalize the output and run blobtools. This needs to manually be run after verifying all the output from the diamond, blastn, minimap, and busco runs.
+As part of the `blobtools_prep_splits.sh` script, a script called `run_blobtools_<base>.sh` is produced to finalize the output and run blobtools. This needs to manually be run after verifying all the output from the diamond, blastn, minimap, and busco runs.
 
 To identify the best hit from both the nr (diamond) and nt (blastn) database for each scaffold, the `get_best_hits_blobtools.sh` script is run as part of the `blobtools_prep_splits.sh` script. verify that the best_hits output file was produced.
 
 
-## EDTA or RepeatMasker output
+## Running EDTA
 
-To parse the number of bp masked from each scaffold, the `get_scaf_num_bp_masked.sh` script need to be run on either the `*.mod.EDTA.TEanno.sum` file from EDTA or the `*.detailed.tbl` file from RepeatMasker
+
+
+To parse the number of bp masked from each scaffold, the `get_scaf_num_bp_masked.sh` script need is run as part of the `run_EDTA.sh` script. Verify that the ___ file was output.
 
