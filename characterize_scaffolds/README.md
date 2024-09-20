@@ -96,7 +96,7 @@ Config  Value
 base    <basename>
 fa_idx  /full/path/to/asm/index/file
 plast_maxqcovs  /full/path/to/plastid/maxqcovs/file
-mit_maxqcovs    /full/path/to/mitochondria/maxqcovs/file
+mito_maxqcovs    /full/path/to/mitochondria/maxqcovs/file
 kraken_tbl_short        /full/path/to/kraken/short/output/file
 blobtools_tbl  /full/path/to/blobtools/output/tsv/table
 best_blast_hits_wIDs    /full/path/to/blobtools/best/hits/wID/file
