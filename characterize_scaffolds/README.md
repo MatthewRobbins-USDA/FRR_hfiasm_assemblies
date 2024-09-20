@@ -50,7 +50,7 @@ To run Kraken, you will need the `run_kraken.sh` scripts. This script has the fo
 
 The script should be run from within the directory you want it to output to. It can be run like so:
 ```
-sbatch /path/to/kraken.sh /full/path/to/asm name
+sbatch /path/to/run_kraken.sh /full/path/to/asm name
 ```
 
 ## Running EDTA
