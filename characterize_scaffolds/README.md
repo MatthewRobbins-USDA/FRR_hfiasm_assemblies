@@ -31,12 +31,12 @@ The script has the following required arguments:
 
 To run the script without existing BUSCO anlysis results, use the following format
 ```
-sbatch /path/to/blobtools_prep_splits.sh account base /path/to/asm "/path/to/reads/*.fasta.gz" ncbi_taxid 1 busco_lineage
+/path/to/blobtools_prep_splits.sh account base /path/to/asm "/path/to/reads/*.fasta.gz" ncbi_taxid 1 busco_lineage
 ```
 Otherwise, use this
 ```
 
-sbatch /path/to/blobtools_prep_splits.sh account base /path/to/asm "/path/to/reads/*.fasta.gz" ncbi_taxid /full/path/to/BUSCO/full_table.tsv busco_lineage
+/path/to/blobtools_prep_splits.sh account base /path/to/asm "/path/to/reads/*.fasta.gz" ncbi_taxid /full/path/to/BUSCO/full_table.tsv busco_lineage
 ```
 As part of the `blobtools_prep_splits.sh` script, a script called `run_blobtools_<base>.sh` is produced to finalize the output and run blobtools. This needs to manually be run after verifying all the output from the diamond, blastn, minimap, and busco runs.
 
